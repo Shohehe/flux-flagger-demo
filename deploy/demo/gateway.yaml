@@ -9,8 +9,8 @@ spec:
     istio: ingressgateway
   servers:
   - port:
-      number: 80
-      name: http-80
+      number: 9898
+      name: http-9898
       protocol: HTTP
     hosts:
     - '*'
