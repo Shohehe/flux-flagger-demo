@@ -33,7 +33,7 @@ $ helm upgrade -i flagger flagger/flagger --namespace=istio-system -f setup/valu
 ```bash
 $ helm repo add fluxcd https://fluxcd.github.io/flux
 $ helm upgrade -i flux --namespace flux fluxcd/flux -f setup/values/flux.yaml
-# 下記コマンドのprivate key をリポジトリのDeploy keysに登録する(Allow write accessにチェック)
+# 下記コマンドのpublic key をリポジトリのDeploy keysに登録する(Allow write accessにチェック)
 $ fluxctl identity --k8s-fwd-ns flux
 ```
 
@@ -43,3 +43,10 @@ $ fluxctl identity --k8s-fwd-ns flux
 1. イメージのバージョンを変更し、コミット/プッシュする
 1. 1を実行し、一部のアクセスのみ最新バージョンへアクセスしていることを確認する
 1. kialiで確認する
+
+### kiali
+
+```bash
+$ kubectl apply -f setup/kiali-secret.yaml
+$ kubectl -n istio-system port-forward $(kubectl -n istio-system get pod -l app=kiali -o jsonpath='{.items[0].metadata.name}') 20001:20001
+```

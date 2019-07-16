@@ -6,6 +6,6 @@ nodes:
 - role: worker
   extraPortMappings:
   - containerPort: 31380
-    hostPort: 80
+    hostPort: 31380
     listenAddress: "127.0.0.1"
     protocol: tcp
