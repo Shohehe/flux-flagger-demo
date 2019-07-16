@@ -1,2 +1,10 @@
 kiali:
-  enabled: false
+  enabled: true
+gateways:
+  istio-ingressgateway:
+    type: NodePort
+pilot:
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
