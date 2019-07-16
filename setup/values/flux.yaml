@@ -1,0 +1,8 @@
+git:
+  path: "deploy"
+  url: "git@github.com:Shohehe/flux-flagger-demo.git"
+  branch: "master"
+  pollInterval: "10s"
+  
+registry:
+  excludeImage: '*'

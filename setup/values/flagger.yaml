@@ -1,0 +1,1 @@
+metricsServer: http://prometheus.istio-system:9090
