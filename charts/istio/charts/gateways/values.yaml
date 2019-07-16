@@ -59,7 +59,6 @@ istio-ingressgateway:
     targetPort: 15020
     name: status-port
   - port: 9898
-    targetPort: 9898
     name: http2
     nodePort: 31380
   - port: 443

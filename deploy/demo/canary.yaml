@@ -20,6 +20,7 @@ spec:
   service:
     # container port
     port: 9898
+    portName: http-9898
     # Istio gateways (optional)
     gateways:
     - demo
