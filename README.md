@@ -11,15 +11,15 @@ $ kind create cluster --name flux-flagger-demo --config setup/kind.yaml
 ### Helm
 
 ```bash
-$ helm install -n istio-init charts/istio-init --namespace=istio-system
-$ helm install -n istio charts/istio --namespace=istio-system
+$ kubectl apply -f setup/helm-rbac.yaml
+$ helm init --service-account tiller
 ```
 
 ### Istio
 
 ```bash
 $ helm install -n istio-init charts/istio-init --namespace=istio-system
-$ helm install -n istio charts/istio --namespace=istio-system
+$ helm install -n istio charts/istio --namespace=istio-system -f setup/values/istio.yaml
 ```
 
 ### Flagger
@@ -33,6 +33,8 @@ $ helm upgrade -i flagger flagger/flagger --namespace=istio-system -f setup/valu
 ```bash
 $ helm repo add fluxcd https://fluxcd.github.io/flux
 $ helm upgrade -i flux --namespace flux fluxcd/flux -f setup/values/flux.yaml
+# 下記コマンドのprivate key をリポジトリのDeploy keysに登録する(Allow write accessにチェック)
+$ fluxctl identity --k8s-fwd-ns flux
 ```
 
 ## 動作確認手順
