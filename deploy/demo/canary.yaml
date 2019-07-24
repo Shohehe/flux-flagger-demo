@@ -28,7 +28,7 @@ spec:
     - demo
   canaryAnalysis:
     # schedule interval (default 60s)
-    interval: 10s
+    interval: 20s
     # max number of failed metric checks before rollback
     threshold: 10
     # max traffic percentage routed to canary
