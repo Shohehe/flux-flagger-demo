@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: demo-app
   namespace: demo
   labels:
-    app: podinfo
+    app: demo-app
 spec:
   minReadySeconds: 5
   revisionHistoryLimit: 5
@@ -15,17 +15,17 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: podinfo
+      app: demo-app
   template:
     metadata:
       annotations:
         prometheus.io/scrape: "true"
       labels:
-        app: podinfo
+        app: demo-app
     spec:
       containers:
-      - name: podinfod
-        image: 767778920793.dkr.ecr.ap-northeast-1.amazonaws.com/demo-app:1.1
+      - name: demo-app
+        image: 767778920793.dkr.ecr.ap-northeast-1.amazonaws.com/demo-app:2.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9898
