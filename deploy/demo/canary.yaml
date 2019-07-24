@@ -1,7 +1,7 @@
 apiVersion: flagger.app/v1alpha3
 kind: Canary
 metadata:
-  name: podinfo
+  name: demo-app
   namespace: demo
 spec:
   # deployment reference
@@ -16,7 +16,7 @@ spec:
   autoscalerRef:
     apiVersion: autoscaling/v2beta1
     kind: HorizontalPodAutoscaler
-    name: podinfo
+    name: demo-app
   service:
     # container port
     port: 9898
