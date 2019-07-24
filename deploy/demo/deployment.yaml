@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: podinfod
-        image: 767778920793.dkr.ecr.ap-northeast-1.amazonaws.com/podinfo:1.6.1
+        image: 767778920793.dkr.ecr.ap-northeast-1.amazonaws.com/podinfo:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 9898
