@@ -4,8 +4,16 @@
 
 ### Cluster
 
+#### kind
+
 ```bash
 $ kind create cluster --name flux-flagger-demo --config setup/kind.yaml
+```
+
+#### EKS
+
+```bash
+$ eksctl create cluster -f eksctl_config.yaml
 ```
 
 ### Helm

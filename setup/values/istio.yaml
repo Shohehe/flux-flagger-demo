@@ -2,9 +2,11 @@ kiali:
   enabled: true
 gateways:
   istio-ingressgateway:
-    type: NodePort
-pilot:
-  resources:
-    requests:
-      cpu: 200m
-      memory: 256Mi
+    # kindの場合, NodePortにする
+    # type: NodePort
+# kindの場合, スペックの都合上有効化する
+# pilot:
+  # resources:
+    # requests:
+      # cpu: 200m
+      # memory: 256Mi
