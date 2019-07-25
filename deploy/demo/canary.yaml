@@ -1,14 +1,14 @@
 apiVersion: flagger.app/v1alpha3
 kind: Canary
 metadata:
-  name: podinfo
+  name: demo-app
   namespace: demo
 spec:
   # deployment reference
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: podinfo
+    name: demo-app
   # the maximum time in seconds for the canary deployment
   # to make progress before it is rollback (default 600s)
   progressDeadlineSeconds: 60
@@ -16,7 +16,7 @@ spec:
   autoscalerRef:
     apiVersion: autoscaling/v2beta1
     kind: HorizontalPodAutoscaler
-    name: podinfo
+    name: demo-app
   service:
     # container port
     port: 9898
@@ -30,13 +30,13 @@ spec:
     # schedule interval (default 60s)
     interval: 10s
     # max number of failed metric checks before rollback
-    threshold: 5
+    threshold: 10
     # max traffic percentage routed to canary
     # percentage (0-100)
-    maxWeight: 100
+    maxWeight: 50
     # canary increment step
     # percentage (0-100)
-    stepWeight: 50
+    stepWeight: 25
     metrics:
     - name: request-success-rate
       # minimum req success rate (non 5xx responses)
